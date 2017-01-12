@@ -31,4 +31,4 @@ Scale deployment
 
 Auto scale deployment
 
-    kubectl autoscale deployment k8s-sample-app --min=1 --max=10 --cpu-precent=80
+    kubectl autoscale deployment k8s-sample-app --min=1 --max=10 --cpu-percent=80
