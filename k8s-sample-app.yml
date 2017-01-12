@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: k8s-sample-app
 spec:
-  replicas: 10
+  replicas: 1
   template:
     metadata:
       labels:
@@ -24,7 +24,7 @@ spec:
             memory: 100Mi
         env:
           - name: NAME
-            value: carl
+            value: curtis
 
 ---
 apiVersion: v1
