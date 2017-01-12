@@ -10,7 +10,7 @@ A kubernetes deployment descriptor is provided, if needed modify the `VERSION` p
 
 ## watch
 
-    watch -n 0.2 -d http http://`minikube service k8s-sample-app --url`/foo
+    watch -n 0.2 -d http `minikube service k8s-sample-app --url`/foo
 
 ## Deployment kubectl commands
 
