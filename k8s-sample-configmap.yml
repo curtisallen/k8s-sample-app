@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-sample-configmap
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-sample-configmap
+    spec:
+      containers:
+      - name: k8s-sample-configmap
+        image: curtisallen/k8s-sample-app:0.0.2
+        ports:
+          - name: http-port
+            containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+          - name: NAME
+            valueFrom:
+              configMapKeyRef:
+                name: sample-configmap
+                key: name
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: sample-configmap
+data:
+  name: world
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-sample-configmap
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: k8s-sample-configmap
+  sessionAffinity: None
+  type: NodePort
