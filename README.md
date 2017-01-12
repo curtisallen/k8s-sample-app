@@ -14,7 +14,11 @@ A kubernetes deployment descriptor is provided, if needed modify the `VERSION` p
 
 ## Deployment kubectl commands
 
-Update deployment
+Create deployment	
+
+    kubectl create -f k8s-sample-app.yml
+
+Update deployment after making a change to k8s-sample-app.yml
 
     kubectl replace -f k8s-sample-app.yml
 
