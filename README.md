@@ -10,7 +10,7 @@ A kubernetes deployment descriptor is provided, if needed modify the `VERSION` p
 
 ## watch
 
-    watch -n 0.2 -d http `minikube service k8s-sample-app --url`/foo
+    watch -n 0.2 -d http --timeout 1 `minikube service k8s-sample-app --url`/foo
 
 ## Deployment kubectl commands
 
@@ -60,7 +60,7 @@ Kubernetes can manage application configuration using ConfigMaps
 
 Interact with the container 
 
-    watch -n 0.2 http `minikube service k8s-sample-configmap --url`/bar
+    watch -n 0.2 http --timeout 1 `minikube service k8s-sample-configmap --url`/bar
 
 Change the ConfigMap value
 
