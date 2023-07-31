@@ -11,7 +11,7 @@ jobs:
       
       - name: Notify build start
         env:
-         SLACK_BOT_TOKEN: ${{ secrets.TCS_QE_ALERTS_SLACK_BOT_TOKEN }}
+         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TCS_QE_ACCURICS_ALERTS }}
         if: success()
         id: tcs_slack_notifier
         uses: voxmedia/github-action-slack-notify-build@v1
