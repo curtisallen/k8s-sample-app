@@ -1,6 +1,8 @@
 name: T14 - accurics cli - non plan based K8s IaC scan - with project
 #removed schedule as its running from part-2 repository
 on:
+ schedule:
+   - cron:  '00 2 * * *'
  workflow_dispatch:
 
 jobs:
