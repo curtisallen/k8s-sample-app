@@ -37,7 +37,7 @@ jobs:
           tar -xf terrascan.tar.gz terrascan && rm terrascan.tar.gz
           install terrascan /usr/local/bin && rm terrascan
           echo "performing non-plan based IaC scan and sending data to $TCS_URL:$TCS_TOKEN"
-          accurics scan k8s -mode=pipeline -token=$TCS_TOKEN -appurl=$TCS_URL -project=12846fcc-3b9a-4970-938d-98d797f2c0c6
+          accurics scan k8s -mode=pipeline -token=$TCS_TOKEN -appurl=$TCS_URL -project=93dca18c-bfdc-473b-9902-7f8a41277861
      
       - name: Notify slack failure
         env:
