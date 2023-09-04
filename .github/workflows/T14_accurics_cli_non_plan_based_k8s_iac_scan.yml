@@ -30,7 +30,7 @@ jobs:
         run: |
         
           echo "installing accurics cli..."
-          wget -q https://downloads.accurics.com/cli/${{ secrets.TCS_CLI_VERSION }}/accurics_linux -O accurics >/dev/null
+          wget -q https://www.tenable.com/downloads/api/v2/pages/cloud-security/files/accurics-cli_latest_linux_x86_64.tar.gz && tar -xvf accurics-cli_latest_linux_x86_64.tar.gz  -O accurics >/dev/null
           chmod +x accurics && sudo mv accurics /usr/local/bin >/dev/null
           accurics version
           
