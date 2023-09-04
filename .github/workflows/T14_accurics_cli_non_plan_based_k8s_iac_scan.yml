@@ -30,16 +30,14 @@ jobs:
         run: |
         
           echo "installing accurics cli..."
-          wget -q https://www.tenable.com/downloads/api/v2/pages/cloud-security/files/accurics-cli_latest_linux_x86_64.tar.gz && tar -xvf accurics-cli_latest_linux_x86_64.tar.gz  -O accurics >/dev/null
-          chmod +x accurics && sudo mv accurics /usr/local/bin >/dev/null
-          accurics version
+          wget -q https://www.tenable.com/downloads/api/v2/pages/cloud-security/files/accurics-cli_1.0.49_macos_arm64.tar.gz  && tar -xvf accurics-cli_1.0.49_macos_arm64.tar.gz && ./accurics version
           
           echo Installing terrascan..
           curl -L "$(curl -s https://api.github.com/repos/tenable/terrascan/releases/latest | grep -o -E "https://.+?_Linux_x86_64.tar.gz")" > terrascan.tar.gz
           tar -xf terrascan.tar.gz terrascan && rm terrascan.tar.gz
           install terrascan /usr/local/bin && rm terrascan
           echo "performing non-plan based IaC scan and sending data to $TCS_URL:$TCS_TOKEN"
-          accurics scan k8s -mode=pipeline -token=$TCS_TOKEN -appurl=$TCS_URL -project=93dca18c-bfdc-473b-9902-7f8a41277861 -provider=aws
+          ./accurics scan k8s -mode=pipeline -token=$TCS_TOKEN -appurl=$TCS_URL -project=93dca18c-bfdc-473b-9902-7f8a41277861 -provider=aws
      
       - name: Notify slack failure
         env:
