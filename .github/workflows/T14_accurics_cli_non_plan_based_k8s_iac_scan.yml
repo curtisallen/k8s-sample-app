@@ -30,7 +30,8 @@ jobs:
         run: |
         
           echo "installing accurics cli..."
-          wget -q https://www.tenable.com/downloads/api/v2/pages/cloud-security/files/accurics-cli_1.0.49_linux_x86_64  && tar -xvf accurics-cli_1.0.49_linux_x86_64 && accurics version
+          wget -q https://www.tenable.com/downloads/api/v2/pages/cloud-security/files/accurics-cli_1.0.49_linux_x86_64  && tar -xvf accurics-cli_1.0.49_linux_x86_64 
+          ./accurics version
           
           echo Installing terrascan..
           curl -L "$(curl -s https://api.github.com/repos/tenable/terrascan/releases/latest | grep -o -E "https://.+?_Linux_x86_64.tar.gz")" > terrascan.tar.gz
